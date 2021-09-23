@@ -1,0 +1,32 @@
+@import "~bootstrap/dist/css/bootstrap.css";
+@import "~font-awesome/css/font-awesome.css";
+
+.search-bar{
+    margin-top: 30px;
+    border-radius: 3px;
+    
+}
+/* .navbar{
+    background-image: url('https://th.bing.com/th/id/OIP.KGvte5FqUeJfzKUrjgmi5QHaDF?w=299&h=145&c=7&r=0&o=5&dpr=1.25&pid=1.7');
+    
+} */
+.container-fluid {
+    margin-top: 10px;
+}
+.site-name{
+    text-decoration: none;
+    font-size: 30px;
+    color: aliceblue;
+    letter-spacing: 1px;
+    font-family: "Brush Script MT";
+
+}
+.search-bar{
+    margin-top: 30px;
+    border-radius: 3px;
+    width:30%;
+    
+}
+h1{
+    font-family: Ink Free;
+}

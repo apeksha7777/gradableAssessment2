@@ -1,0 +1,22 @@
+<form class="form-style-9" #add="ngForm" (ngSubmit)="submitProduct(add.value)">
+    <ul>
+    <li>
+        <input type="text" name="name" class="field-style  align-none" placeholder="Product name" ngModel/>
+    </li>
+    <li>
+        <input type="text" name="price" class="field-style  align-none" placeholder="Product price(Rs)" ngModel />
+    
+    </li>
+    <li>
+        <input type="text" name="weight" class="field-style align-none" placeholder="product weight" ngModel/>
+    </li>
+    <li>
+        <input type="url" name="imgUrl" class="field-style align-none" placeholder="product image url" ngModel/>
+    </li>
+    
+    <li>
+    <input routerLink='/home' type="submit" value="Add Product"  />
+    </li>
+    </ul>
+    </form>
+    

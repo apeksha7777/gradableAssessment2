@@ -1,0 +1,62 @@
+<div *ngIf='adminLoggedIn=="true"'>
+ 
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
+    <a class="navbar-brand" href="#">Kitchen story</a>
+        <div class="container-fluid">
+          <form class="form-inline my-2 my-lg-0 ms-auto nav-item">
+             <i class="fa fa-user nav-link" style="color: rgb(149, 144, 161)"> Admin</i> 
+            <div class="dropdown nav-item">
+              <button class="btn btn-outline-default nav-link" style="color: rgb(149, 144, 161)">settings</button>
+              <div class="dropdown-content">
+              <a href="/password"style="text-decoration:underline;color:blue;">Change password</a>
+              </div>
+            </div>
+            <button routerLink="/home" (click)="adminLogout()" class="btn btn-outline-info " type="submit">Log Out</button>
+          </form>
+         
+        </div>
+      </nav>
+</header>
+<div class="container-fluid" style="margin-left: 2%;">
+    <button mat-raised-button class="btn btn btn-outline-secondary addProduct" (click)="addProduct()">Add Product</button>
+   
+    <div class="container-fluid justify-content-center search-bar">
+      <div class="row">
+          <div class="col-md-5">
+              <div class="input-group mb-3"> <input type="text" class="form-control input-text" placeholder="Search products...." [(ngModel)]="term" aria-label="Recipient's username" aria-describedby="basic-addon2">
+              
+                <button type="submit" class="btn btn-primary"><i class="fa fa-search" ></i></button> 
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  <div *ngIf="!noProduct" class="container-fluid" style="padding-left: 1%;padding-top: 1%;width:90%">
+      <div *ngFor="let item of productList|filter:term" class="border" style="float:left;padding:8px;margin-left: 20px;margin-bottom: 40px;">
+          &ensp;
+          <img src="{{item.imgUrl}}" style="height:140px;width:160px;padding: 4px;">
+          <p>{{item.name}}</p>
+          <p>Price(Rs): {{item.price}}</p>
+          <p>Weight: {{item.weight}}</p>
+          <button class="btn btn-danger"(click)="deleteProduct(item.id)">Remove</button>
+  
+      </div>
+  </div>
+  <div *ngIf="noProduct" >
+    ---------------No products available--------------
+  
+  </div>
+  
+
+  
+  
+  
+  
+    
+   
+    
+</div>
+
+
+</div>

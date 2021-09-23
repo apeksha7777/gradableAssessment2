@@ -1,0 +1,71 @@
+<header>
+  <nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
+    <a class="navbar-brand" href="#">Kitchen story</a>
+        <div class="container-fluid">
+          <form class="form-inline my-2 my-lg-0 ms-auto nav-item">
+             <i class="fa fa-user nav-link" style="color: rgb(149, 144, 161)"> Welcome,{{username}}</i> 
+            <button routerLink="/home"  (click)="userLogout()" class="btn btn-outline-info " type="submit">Log Out</button>
+          </form>
+         
+        </div>
+      </nav>
+</header>
+ 
+<!-- <header>
+    <nav class="navbar">
+        <div class="container-fluid">
+          <a class="site-name" href="#">
+            KitchenStory
+          </a>
+         <a href="*" style="margin-right: '5%';text-decoration: none;font-size: 20px;color: aliceblue;">logout</a>
+        </div>
+      </nav>
+</header> -->
+<div class="container-fluid" style="padding-left: 4%;padding-top: 3%;">
+    <h1>Your Cart</h1>
+</div>
+
+<div *ngIf="!noCart" class="container-fluid border" style="padding-left: 4%;padding-top: 1%;">
+  <div *ngFor="let item of cartList"  style="padding:8px;margin-left: 20px;">
+      <div class="row">
+        <div class="col-md-2">
+          <img src="{{item.imgUrl}}" style="float:left;height:140px;width:160px;padding: 4px;">
+        </div>
+      
+        <div class="col-md-1"  style="margin-top: 4%;">
+        <p>{{item.name}}</p>
+        </div>
+
+        <div class="col-md-1" style="margin-top: 4%;">
+          <p>Price(Rs): {{item.price}}</p>
+        </div>
+
+        <div class="col-md-1" style="margin-top: 4%;">
+          <p>Weight: {{item.weight}}</p>
+        </div>
+        <div class="col-md-1" style="margin-top: 3%;">
+          <label for="quantity">Quantity:</label>
+          <input type="number" id="quantity" value=item.quantity name="quantity" min="1" max="10" (ngModelChange)="changeQuantity($event,item)" [ngModel]=item.quantity>
+        </div>
+        <div class="col-md-1" style="margin-top: 3.8%;">
+          <button class="btn btn-danger"(click)="deleteProduct(item.id)">Remove</button>
+        </div>
+        <div class="col-md-2" style="margin-top: 4%;">
+          <p>Item Total :<b> Rs {{item.price*item.quantity}}</b></p>
+
+        </div>
+        
+      </div>
+     </div>
+  <div >
+   <b style="margin-left:80%;font-size: 18px;"> Total bill: Rs {{totalBill}}</b><br><br>
+    <button (click)="checkout(totalBill,userId,router)" style="margin-left:81%;" class="btn btn-success" >Checkout</button>
+  </div>
+</div>
+
+<div *ngIf="noCart" >
+  <br><br>
+  ---------------your cart is empty--------------
+
+</div>
+

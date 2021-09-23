@@ -1,0 +1,61 @@
+<header>
+	<nav class="navbar navbar-expand-sm bg-dark navbar-dark justify-content-between">
+	  <a class="navbar-brand" href="#">Kitchen story</a>
+	 
+	  <div class="collapse navbar-collapse" id="navbarNav">
+		<ul class="navbar-nav">
+		  <li class="nav-item active">
+			<a class="nav-link" >About <span class="sr-only">(current)</span></a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" >Contact</a>
+		  </li>
+		  <li class="nav-item">
+			<a class="nav-link" >Features</a>
+		  </li>
+		  
+		</ul>
+		
+	   
+		
+	  </div>
+	
+	</nav>
+  </header>
+<!DOCTYPE html>
+<html>
+<head>
+	
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+	
+</head>
+<body>
+	
+	
+	<div class="container" id="container">
+		<div class="form-container log-in-container">
+			<form >
+				<button  type="button" class="close" aria-label="Close" routerLink="/home">
+					<span  aria-hidden="true">&times;</span>
+				  </button>
+				<h3>Admin Login</h3>
+				
+				<br>
+				<input type="text" name="username" placeholder="User name" [(ngModel)]="admin.username" />
+				<input type="password" name="password" placeholder="Password" [(ngModel)]="admin.password" />
+				<button class="left-side" (click)="adminLogin()">Log In</button>
+				<p *ngIf="errorMsg" style="color:red;">Incorrect username or password</p>
+			</form>
+			
+		</div>
+		<div class="overlay-container">
+			<div class="overlay">
+				<div class="overlay-panel overlay-right">
+					<button class="right-side non-glow" routerLink="/userLogin">User </button><br><br>
+                    <button class="right-side glow-button">Admin</button>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+</html>
